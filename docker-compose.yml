@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  # PostgreSQL database
+  db:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=app_user
+      - POSTGRES_PASSWORD=app_password
+      - POSTGRES_DB=issue_reporter
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U app_user -d issue_reporter"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # FastAPI backend
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ../docker/backend.Dockerfile
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    environment:
+      - DATABASE_URL=postgresql://app_user:app_password@db:5432/issue_reporter
+      - CORS_ORIGINS=http://localhost:3000
+      - SECRET_KEY=development_secret_key_change_in_production
+      - DEBUG=true
+      - GOOGLE_CLIENT_ID=your_google_client_id
+      - GOOGLE_CLIENT_SECRET=your_google_client_secret
+      - APPLE_CLIENT_ID=your_apple_client_id
+      - APPLE_TEAM_ID=your_apple_team_id
+      - APPLE_KEY_ID=your_apple_key_id
+      - PAYPAL_CLIENT_ID=your_paypal_client_id
+      - PAYPAL_CLIENT_SECRET=your_paypal_client_secret
+    depends_on:
+      db:
+        condition: service_healthy
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  # React frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../docker/frontend.Dockerfile
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+      - REACT_APP_GOOGLE_CLIENT_ID=your_google_client_id
+      - REACT_APP_APPLE_CLIENT_ID=your_apple_client_id
+      - REACT_APP_PAYPAL_CLIENT_ID=your_paypal_client_id
+    depends_on:
+      - backend
+    command: npm start
+
+volumes:
+  postgres_data: 
