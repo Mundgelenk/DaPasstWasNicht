@@ -2,9 +2,10 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Install dependencies
-COPY package.json package-lock.json* ./
-RUN npm install
+# Install dependencies only when needed
+# Skip if node_modules exists in volume
+COPY package.json ./
+RUN npm install --legacy-peer-deps
 
 # Copy application code
 COPY . .
