@@ -20,8 +20,8 @@ services:
   # FastAPI backend
   backend:
     build:
-      context: ./backend
-      dockerfile: ../docker/backend.Dockerfile
+      context: .
+      dockerfile: docker/backend.Dockerfile
     restart: always
     ports:
       - "8000:8000"
@@ -47,14 +47,11 @@ services:
   # React frontend
   frontend:
     build:
-      context: ./frontend
-      dockerfile: ../docker/frontend.Dockerfile
+      context: .
+      dockerfile: docker/frontend.Dockerfile
     restart: always
     ports:
       - "3000:3000"
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
     environment:
       - REACT_APP_API_URL=http://localhost:8000
       - REACT_APP_GOOGLE_CLIENT_ID=your_google_client_id
@@ -62,8 +59,6 @@ services:
       - REACT_APP_PAYPAL_CLIENT_ID=your_paypal_client_id
     depends_on:
       - backend
-    command: >
-      sh -c "cd /app && npm install && npm start"
 
 volumes:
   postgres_data: 
