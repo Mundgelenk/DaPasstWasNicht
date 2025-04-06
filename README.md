@@ -68,10 +68,6 @@ The development will start with **basic features**, followed by the addition of 
 
 ---
 
-## Vision
-This app is designed to empower users to quickly and efficiently report problems, no matter where they are. Its **clean design** and **step-by-step navigation** ensure a seamless experience, from capturing a photo to submitting a detailed report. This strong foundation will not only streamline problem reporting but also pave the way for **future enhancements** that reward proactive users.
-
-
 ```mermaid
 flowchart TD
     A[Startup Screen] -->|If not logged in| B[Register]
@@ -87,6 +83,7 @@ flowchart TD
     C -->|Back| D
 ```
 
+---
 
 ```tree
 The github is https://github.com/Mundgelenk/DaPasstWasNicht 
