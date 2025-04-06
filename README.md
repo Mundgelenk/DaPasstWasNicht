@@ -1,29 +1,78 @@
-This is a project we are working on that should make it very easy to report issues no matter if you are in a company, outside or at home. So far we have a general idea of how it should look and what features it will include.
+# DaPasstWasNicht
 
-The project will begin with a set of basic features and once these are implemented we can work on the more advanced features. I want to use Expo Go to test the app along the go as it worked well in older projects and I plan to use the React Native framework for the frontend.
+This project aims to simplify the process of reporting issues, whether users are at work, outdoors, or at home. The app will include a clean, modern design and intuitive navigation to guide users through reporting problems efficiently. 
 
-Basic features should include:
-	•	Startup Screen:
-An engaging splash screen with an animated illustration of a building undergoing repairs and a progress bar. It directs users to either the registration page if they are not logged in or directly to the home screen if they are.
-	•	Log In and Registration Screen:
-A minimal design with ample white space that features clearly labeled fields for email and password. Users have the option to create a new account or sign in using Google. The clean layout ensures that users can easily register or log in.
-	•	Home Screen:
-The central hub of the app where users can access all features. This screen features a clear and intuitive layout with a prominent button for reporting an issue by taking a photo. Future functionalities are hinted at on this screen to provide a seamless transition as the app evolves.
-	•	Photo Screen:
-A Snapchat-like camera interface that allows users to capture a photo. The screen offers a full-screen camera preview and a large circular shutter button at the bottom to keep the experience simple and distraction free.
-	•	After Photo Screen:
-Once a photo is taken, this screen displays a small preview of the image along with the location where it was captured. It includes a text field for adding a detailed description of the issue and buttons for retaking the photo or sending the report.
+The development will start with **basic features**, followed by the addition of **advanced functionalities**. The app will use **Expo Go** for testing during development and **React Native** for the frontend.
 
-Future features include:
+---
+
+## Basic Features
+
+### 1. **Startup Screen**
+- An engaging splash screen with:
+  - An animated illustration of a building undergoing repairs.
+  - A progress bar.
+- Directs users to:
+  - The registration page (if not logged in).
+  - The home screen (if logged in).
+
+### 2. **Log In and Registration Screen**
+- Minimalist design with ample white space.
+- Clearly labeled fields for:
+  - Email.
+  - Password.
+- Options for:
+  - Creating a new account.
+  - Signing in using Google.
+
+### 3. **Home Screen**
+- The central hub of the app.
+- Features:
+  - A clear, intuitive layout.
+  - A prominent button for reporting an issue (via photo).
+  - Hints at future functionalities to ensure seamless app evolution.
+
+### 4. **Photo Screen**
+- A Snapchat-like camera interface:
+  - Full-screen camera preview.
+  - Large circular shutter button at the bottom for simplicity and focus.
+
+### 5. **After Photo Screen**
+- Displays a small preview of the captured photo.
+- Shows the location where the photo was taken.
+- Includes:
+  - A text field for adding a detailed description of the issue.
+  - Buttons for:
+    - Retaking the photo.
+    - Sending the report.
+
+---
+
+## Future Features
+
+### 1. **Payment Integration**
+- Connect PayPal or other banking details.
+- Users can receive rewards from the entity that resolves the issue, motivating proactive reporting.
+
+### 2. **Multi-Level Issue Management**
+- Handles:
+  - Private issues.
+  - City-wide issues.
+  - Company-specific issues.
+- Example Use Case:
+  - Reporting a broken lamp at home or a problem in a restaurant.
+  - The app uses photo location data to determine the most relevant entity.
+- Businesses:
+  - Will have accounts to receive reports.
+  - Can respond with rewards like money, coupons, or other incentives.
+
+---
+
+## Vision
+This app is designed to empower users to quickly and efficiently report problems, no matter where they are. Its **clean design** and **step-by-step navigation** ensure a seamless experience, from capturing a photo to submitting a detailed report. This strong foundation will not only streamline problem reporting but also pave the way for **future enhancements** that reward proactive users.
 
 
-	•	Payment Integration:
-The possibility to connect PayPal or any kind of banking details so that users receive a reward from the party that reported the issue. This adds motivation to report problems.
-	•	Multi-Level Issue Management:
-A system that manages private, city wide and company issues. For example, if a lamp is broken in your home or if there is a problem in a restaurant you are sitting in, the app can use the photo’s location data to determine the most likely entity. Businesses will have an account for receiving these reports and can respond by sending money, coupons or other rewards.
-
-Overall the app is designed to empower users to quickly and efficiently report problems wherever they are. Its clean modern design and intuitive navigation guide users step by step from capturing a photo to submitting a detailed report. This solid foundation will not only improve problem reporting but will also pave the way for future enhancements that reward proactive reporting.
-
+```mermaid
 flowchart TD
     A[Startup Screen] -->|If not logged in| B[Register]
     A -->|If logged in| D[Home Screen]
@@ -36,8 +85,10 @@ flowchart TD
     E -->|Submit report| G[Send]
 
     C -->|Back| D
+```
 
 
+```tree
 The github is https://github.com/Mundgelenk/DaPasstWasNicht 
 the folder structure should be similar to : /project-root
 ├── /assets
@@ -113,3 +164,4 @@ the folder structure should be similar to : /project-root
 ├── app.json                  # Expo configuration
 ├── package.json              # Project dependencies and scripts
 └── README.md                 # Project documentation
+```
