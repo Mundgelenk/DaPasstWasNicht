@@ -1,0 +1,38 @@
+# Operating System files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE configuration files
+.vscode/
+.idea/
+*.suo
+*.user
+*.sln.docstates
+
+# Dependency directories
+node_modules/
+bower_components/
+vendor/
+venv/
+env/
+.env
+*.pyc
+__pycache__/
+
+# Build artifacts
+build/
+dist/
+out/
+target/
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Log files
+*.log
+logs/ 
