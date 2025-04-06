@@ -1,0 +1,25 @@
+# requirements.txt for DaPasstWasNicht Python 3.10 Backend
+
+# Web framework and extensions
+Flask==2.2.3
+Flask-Cors==3.0.10
+Flask-RESTful==0.3.9
+
+# Authentication and security
+PyJWT==2.6.0
+
+# Environment variable management
+python-dotenv==1.0.0
+
+# Firebase integration (if needed)
+firebase-admin==6.0.1
+
+# Database ORM and adapter (adjust versions as needed)
+SQLAlchemy==1.4.46
+psycopg2-binary==2.9.6
+
+# Production server (e.g., for deployment with Gunicorn)
+gunicorn==20.1.0
+
+# HTTP client for any external API calls
+requests==2.28.2
